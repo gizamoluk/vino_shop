@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+	<head>
+		<meta charset="utf-8" />
+		<title>Сайт о вине</title>
+		<link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	</head>
+	<body>
+		<a name="btn-5"></a>
+		<div class="container">
+			<header>Винный магазин "Винопьём"</header>
+			<nav>
+				<ul>
+					<li><a href="/">Главная</a></li>
+					<li><a href="../wine-history">История</a></li>
+					<li><a href="../wine-shop">Магазин</a></li>
+					<li><a href="../wine-contacts">Контакты</a></li>
+					<li><a href="#btn-4">Авторы</a></li>
+			</ul>
+			</nav>
+			<article>
+				<section class="shop" >
+					<h1>Описание товара</h1>
+						<div class="image">
+							<img th:src="'../img/'+${item.img}" />
+						</div>
+						<div class="text">
+							<h2>Характеристики</h2>
+							<p th:text="'Вино: '+${item.name}">Вино</p>
+							<p th:text="'Тип: '+${item.color}" >Тип:</p>
+							<p th:text="'Крепость: '+${item.strong}+'%'">Крепость:</p>
+							<p th:text="'Страна :'+${item.country}">Страна:</p>
+						</div>
+						<div class="pay">
+							<h2>Корзина</h2>
+							<p th:text="'Цена '+${item.price}">Цена: </p>
+							<button>Оформить заказ</button>
+							
+						</div>
+						<div style="clear:both"></div>
+					
+				</section>
+				
+				<section class="gallery"  >
+					<h1>Галерея</h1>
+					<div class="gallery-vine"  >
+						<figure class="" th:each="prod :${listProducts}">
+							<p>
+								<a th:href="@{/wine/{id}( id=${prod.id} )}"><img th:src="'../img/'+${prod.img}"   alt="Вино Cabernet Sauvignon Finca La Linda, 2011"
+								/></a>
+							</p>
+							<figcaption >
+								<p th:text="'Вино '+${prod.name}"/>
+								<p th:text="${prod.color}+', '+${prod.sugarContent}"/>
+								<p th:text="${prod.country}"/>
+								<p th:text="'Цена: ' + ${prod.price}" />
+								<p th:text="'Крепость: ' + ${prod.strong}+'%'" />
+
+							</figcaption>
+						</figure>
+
+					</div>
+
+				</section>
+				<section class="history">
+					<h1>Определение напитка</h1>
+					<p>Вино — алкогольный напиток, получаемый полным или частичным спиртовым брожением виноградного сока.</p>
+					<img src="http://www.clipartkid.com/images/425/secrets-of-the-superhuman-food-pyramid-negative-effects-of-red-wine-VMzBPd-clipart.jpg" alt="Бокал вина" />	
+				</section>
+				<section style="clear: both;"></section>
+			</article>
+			<footer>
+			<div style="float:left">
+				<h1><a name="btn-4"></a>Авторы</h1>
+				<p>Автор сайта - начинающий веб-разработчик Денис Тимофеев</p>
+				<p>Собственность ООО "ДовольныйАртурДотКом"</p>
+			</div>
+			<div style="float:right">
+				<form action="#btn-5">
+					<button type="submit">Наверх</button>
+				</form>
+			</div>
+			<div style="clear:both"></div>
+		</footer>
+		</div>
+	</body>
+</html>

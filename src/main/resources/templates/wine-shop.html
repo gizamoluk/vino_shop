@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Сайт о вине</title>
+	<link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/less.js-2.7.1/dist/less.min.js"></script>
+</head>
+
+<body>
+	<a name="btn-5"></a>
+	<div class="container">
+		<header>Винный магазин "Винопьём"</header>
+		<nav>
+			<ul>
+				<li><a href="/">Главная</a></li>
+				<li><a href="wine-history">История</a></li>
+				<li><a href="wine-shop">Магазин</a></li>
+				<li><a href="wine-contacts">Контакты</a></li>
+				<li><a href="#btn-4">Авторы</a></li>
+			</ul>
+		</nav>
+		<article>
+			<section class="shop-1">
+				<h1>Ассортимент</h1>
+
+				<div class="gallery-vine-1">
+					<figure class="" th:each="prod :${listProduct}">
+						<p>
+							<div>
+							<a th:href="@{/wine/{id}(id=${prod.id})}"><img th:src="'img/'+${prod.img}" alt="Вино Cabernet Sauvignon Finca La Linda, 2011"
+								/></a>
+
+							</div>
+						</p>
+					</figure>
+				</div>
+
+			</section>
+		</article>
+		<footer>
+			<div style="float:left">
+				<h1><a name="btn-4"></a>Авторы</h1>
+				<p>Автор сайта - начинающий веб-разработчик Денис Тимофеев</p>
+				<p>Собственность ООО "ДовольныйАртурДотКом"</p>
+			</div>
+			<div style="float:right">
+				<form action="#btn-5">
+					<button type="submit">Наверх</button>
+				</form>
+			</div>
+			<div style="clear:both"></div>
+		</footer>
+	</div>
+</body>
+
+</html>
